@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
@@ -25,7 +25,15 @@ const UserProfile = (props) => {
 
     const handleLogout = async () => {
         try {
-            const response = await fetch('http://localhost:5050/auth/logout', {
+            let apiBaseUrl;
+
+            // Check if the app is running in development (localhost) or production (Render)
+            if (!process.env.NODE_ENV === 'development') {
+                apiBaseUrl = 'http://localhost:5050'; // Your local server URL
+            } else {
+                apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
+            }
+            const response = await fetch(`${apiBaseUrl}/auth/logout`, {
                 method: 'POST',
                 credentials: 'include', // Send cookies with the request
                 headers: {

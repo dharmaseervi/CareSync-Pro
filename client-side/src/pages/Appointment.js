@@ -6,7 +6,15 @@ const Appointment = (props) => {
     const userid = props.userID.userID;
     console.log('userid for backend', userid);
     const [data, setData] = useState([]);
-    const url = `http://localhost:5050/auth/appointmentForm?data=${encodeURIComponent(userid)}`;
+    let apiBaseUrl;
+
+    // Check if the app is running in development (localhost) or production (Render)
+    if (!process.env.NODE_ENV === 'development') {
+        apiBaseUrl = 'http://localhost:5050'; // Your local server URL
+    } else {
+        apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
+    }
+    const url = `${apiBaseUrl}/auth/appointmentForm?data=${encodeURIComponent(userid)}`;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,7 +37,7 @@ const Appointment = (props) => {
                 <div className='res-appointment d-flex   mx-auto p-4 gap-2 m-3 justify-content-between align-items-center' style={{ width: '98%', height: '100%' }}>
                     <table class="table ">
                         <thead class="thead-dark  table table-dark rounded ">
-                            <tr  className='text-center' >
+                            <tr className='text-center' >
                                 <th scope="col" className='p-3'>#</th>
                                 <th scope="col" className='p-3'>First Name</th>
                                 <th scope="col" className='p-3'>Last Name</th>

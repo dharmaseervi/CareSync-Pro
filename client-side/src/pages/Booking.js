@@ -7,7 +7,15 @@ import SuccessPage from "../components/Successful";
 export default function Form(props) {
     const fetchSession = async () => {
         try {
-            const response = await fetch("http://localhost:5050/auth/validatesession", {
+            let apiBaseUrl;
+
+            // Check if the app is running in development (localhost) or production (Render)
+            if (!process.env.NODE_ENV === 'development') {
+                apiBaseUrl = 'http://localhost:5050'; // Your local server URL
+            } else {
+                apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
+            }
+            const response = await fetch(`${apiBaseUrl}/auth/validatesession`, {
                 credentials: "include",
                 mode: 'cors',
                 headers: {

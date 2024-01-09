@@ -32,7 +32,15 @@ export default function Signup(props) {
 
     const handleSignUp = async () => {
         try {
-            const response = await fetch('http://localhost:5050/auth/register', {
+            let apiBaseUrl;
+
+            // Check if the app is running in development (localhost) or production (Render)
+            if (!process.env.NODE_ENV === 'development') {
+                apiBaseUrl = 'http://localhost:5050'; // Your local server URL
+            } else {
+                apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
+            }
+            const response = await fetch(`${apiBaseUrl}/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

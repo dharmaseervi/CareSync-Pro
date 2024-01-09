@@ -71,16 +71,6 @@ app.use(express.static(path.join(__dirname, '../client-side/build')));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client-side/build/index.html'));
 });
-let apiBaseUrl;
-
-// Check if the app is running in development (localhost) or production (Render)
-if (NODE_ENV === 'development') {
-    apiBaseUrl = 'http://localhost:5050';
-    console.log("local");  // Your local server URL
-} else {
-    apiBaseUrl = 'https://caresync-pro.onrender.com';
-    console.log("render");  // Your Render domain
-}
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

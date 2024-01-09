@@ -11,8 +11,15 @@ const Profile = (props) => {
     const [editedData, setEditedData] = useState({});
     console.log(editedData);
  
+    let apiBaseUrl;
 
-    const url = `http://localhost:5050/auth/userdata?data=${encodeURIComponent(userid)}`;
+    // Check if the app is running in development (localhost) or production (Render)
+    if (!process.env.NODE_ENV === 'development') {
+        apiBaseUrl = 'http://localhost:5050'; // Your local server URL
+    } else {
+        apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
+    }
+    const url = `${apiBaseUrl}/auth/userdata?data=${encodeURIComponent(userid)}`;
 
 
     useEffect(() => {
@@ -35,7 +42,7 @@ const Profile = (props) => {
 
     const handleSaveClick = async () => {
         try {
-            const response = await axios.put(`http://localhost:5050/auth/update-profile/${userid}`, editedData);
+            const response = await axios.put(`${apiBaseUrl}/auth/update-profile/${userid}`, editedData);
             setData(response.data);
             setEditMode(false);
         } catch (error) {
