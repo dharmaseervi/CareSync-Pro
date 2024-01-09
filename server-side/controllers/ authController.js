@@ -1,7 +1,15 @@
 import User from '../model/register.js';
 import jwt from 'jsonwebtoken';
 import { jwtSecret } from '../config.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
+// let bcrypt;
+
+// if (process.env.NODE_ENV === 'production') {
+//   bcrypt = require('bcryptjs');
+// } else {
+//   bcrypt = require('bcrypt');
+// }
+
 //register route
 export const register = async (req, res) => {
     try {
