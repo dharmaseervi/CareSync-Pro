@@ -6,4 +6,5 @@ export const port = process.env.PORT || 3000;
 export const mongoURI = process.env.MONGODB_URI;
 export const jwtSecret = process.env.JWT_SECRET;
 export const sessionSecret = process.env.SESS_SECRET
+export const NODE_ENV = process.env.NODE_ENV || 'development';
 
