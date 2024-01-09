@@ -62,11 +62,14 @@ store.on('error', (error) => {
 app.use('/auth', authRoutes);
 
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-app.use(express.static(path.join(__dirname, './client-side/build')))
+app.use(express.static(path.join(__dirname, './client-side/build')));
+
+// Catch-all route to serve React app's index.html
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './client-side/build/index.html'))
+    res.sendFile(path.join(__dirname, './client-side/build/index.html'));
 });
 
 app.listen(port, () => {
