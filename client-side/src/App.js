@@ -20,6 +20,7 @@ function App() {
   const [treat, setTreat] = useState("");
   const [blog, setBlog] = useState("");
   const [login, setLogin] = useState(false)
+  const [firstLetter, setFirstLetter] = useState('')
   const [userLoginInfo, setUserLoginInfo] = useState({});
 
   useEffect(() => {
@@ -34,20 +35,18 @@ function App() {
       });
       if (response.status === 200) {
         const data = await response.json();
-        console.log(data)
         setLogin(true);
         setUserLoginInfo(data.data)
-        console.log(userLoginInfo)
+        setFirstLetter(data.data.firstName[0])
+
       } else {
         setLogin(false);
-        console.log("not login");
-        console.log(login);
       }
 
     } // Log the login state here or use a then callback
 
     fetchSession();
-  }, [])
+  }, [login])
 
   const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -57,12 +56,12 @@ function App() {
 
     return null;
   };
-  console.log(userLoginInfo);
+
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar login={login} setLogin={setLogin} />
+        <Navbar login={login} setLogin={setLogin} firstLetter={firstLetter} />
         <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home login={login} setTreat={setTreat} setBlog={setBlog} />} />
@@ -74,8 +73,8 @@ function App() {
           <Route path='/booking' element={<Booking userID={userLoginInfo} />} />
           <Route path='/login' element={<Login setLogin={setLogin} setUserLoginInfo={setUserLoginInfo} />} />
           <Route path='/signup' element={<Signup />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/appointment' element={<Appointment />} />
+          <Route path='/profile' element={<Profile userID={userLoginInfo} setFirstLetter={setFirstLetter} />} />
+          <Route path='/appointment' element={<Appointment userID={userLoginInfo} />} />
         </Routes>
       </BrowserRouter>
     </div>

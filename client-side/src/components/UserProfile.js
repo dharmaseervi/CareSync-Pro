@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
@@ -8,11 +8,11 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
-import MasksIcon from '@mui/icons-material/Masks';
 import { Link, useNavigate } from 'react-router-dom';
 
 
 const UserProfile = (props) => {
+    console.log(props.firstLetter);
     const navigate = useNavigate();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -59,7 +59,7 @@ const UserProfile = (props) => {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                        <Avatar sx={{ width: 40, height: 40, textTransform: 'capitalize' }}>{props.firstLetter}</Avatar>
                     </IconButton>
                 </Tooltip>
             </Box>
@@ -76,8 +76,8 @@ const UserProfile = (props) => {
                         filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
                         mt: 1.5,
                         '& .MuiAvatar-root': {
-                            width: 32,
-                            height: 32,
+                            width: 40,
+                            height: 35,
                             ml: -0.5,
                             mr: 1,
                         },
@@ -98,15 +98,17 @@ const UserProfile = (props) => {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem onClick={handleClose}>
-                    <Avatar /> <Link style={{ textDecoration: 'none' }} to={'/profle'}>Profile</Link>
+                <MenuItem onClick={handleClose} className='d-flex justify-content-start '>
+
+                    <Link style={{ textDecoration: 'none', color: 'black' }} to={'/profile'}>Profile</Link>
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
-                    <MasksIcon sx={{ fontSize: '2.5rem' }} /><Link style={{ textDecoration: 'none' }} to={'/appointment'}>Appointment</Link>
+                <MenuItem onClick={handleClose} className='d-flex justify-content-start '>
+
+                    <Link style={{ textDecoration: 'none', color: 'black' }} to={'/appointment'}>Appointment</Link>
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleClose}>
-                    <ListItemIcon onClick={handleLogout}>
+                <MenuItem onClick={handleClose} className='d-flex justify-content-center '>
+                    <ListItemIcon onClick={handleLogout} className='d-flex gap-2 ' >
                         <Logout fontSize="small" />
                         Logout
                     </ListItemIcon>

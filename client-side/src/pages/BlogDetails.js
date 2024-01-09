@@ -10,7 +10,7 @@ const BlogDetails = (props) => {
                     <h6 style={{ fontSize: '2rem' }}>{props.data.title}</h6>
                 </div>
                 <div>
-                    <img className='treat-card' src={props.data.image} style={{ width: '50vw', height: '50vh', borderRadius: '10px' }} alt='...'></img>
+                    <img className='treat-card' src={props.data.image} style={{ width: '100%', height: '100%', borderRadius: '10px' }} alt='...'></img>
                 </div>
                 <div>
                     <p> {props.data.details}</p>

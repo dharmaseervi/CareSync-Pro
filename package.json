@@ -1,0 +1,16 @@
+{
+  "name": "caresync-pro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-server-side": "cd server-side && npm install",
+    "start-server-side": "cd server-side && node app.js",
+    "install-client-side": "cd client-side && npm install",
+    "build-client-side":"cd client-side && npm run build",
+    "start-client-side": "cd client-side && npm run start"
+  },
+  "author": "",
+  "license": "ISC"
+}

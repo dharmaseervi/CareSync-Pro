@@ -7,6 +7,12 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser';
 import session from "express-session";
 import { default as connectMongoDBSession } from 'connect-mongodb-session';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import path from 'path';
+
+
+
 
 
 const MongoDBStore = connectMongoDBSession(session);
@@ -37,7 +43,7 @@ app.use(
     session({
         name: 'usersession',
         secret: sessionSecret,
-        resave: true,
+        resave: false,
         saveUninitialized: true,
         store: store,
         cookie: {
@@ -54,6 +60,14 @@ store.on('error', (error) => {
 });
 
 app.use('/auth', authRoutes);
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+app.use(express.static(path.join(__dirname, './client-side/build')))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './client-side/build/index.html'))
+});
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

@@ -103,11 +103,11 @@ const BlogCard = (props) => {
 
     return (
         <>
-            <div className='d-flex flex-wrap justify-content-evenly gap-2 m-2  mt-4 p-2'>
+            <div className='res-blog d-flex flex-wrap justify-content-evenly gap-2 m-2   mt-4 p-2'>
                 {
                     BlogDetails.map((data) => (
                         <Link style={{ textDecoration: 'none' }} onClick={() => { props.setBlog(data) }} to={'/blogs-details'} key={data.title}>
-                            <Card style={{ width: '26rem', height: '33rem' }} className='d-flex'>
+                            <Card style={{ width: '26rem', height: '33rem' }} className='res-card d-flex'>
                                 <Card.Img variant="top" src={data.image} />
                                 <Card.Body className='d-flex gap-2 flex-column justify-content-between'>
                                     <Card.Title>{data.title}</Card.Title>

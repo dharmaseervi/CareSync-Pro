@@ -1,9 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import loginImg from '../assets/login.png'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+
 import { useNavigate } from 'react-router-dom';
 export default function Signup(props) {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+    useEffect(() => {
+        const changeWidth = () => {
+            setWindowWidth(window.innerWidth)
+        }
+        window.addEventListener('resize', changeWidth);
+        return () => {
+            window.removeEventListener('resize', changeWidth)
+        }
+    }, [])
     const navigate = useNavigate();
     const [successMessage, setSuccessMessage] = useState('');
     const [user, setUser] = useState({
@@ -57,11 +67,11 @@ export default function Signup(props) {
 
 
     return (
-        <div className='d-flex justify-content-center  align-items-center m-3 mx-auto ' style={{ height: '80vh', width: "80%" }}>
-            <div className='d-flex border  justify-content-center  flex-column align-items-center gap-2 ' style={{ width: '50%', height: '70vh', background: 'orange' }}>
+        <div className='res-signup d-flex justify-content-center  align-items-center m-3 mx-auto ' style={{ height: '80vh', width: "80%" }}>
+            {(windowWidth > 800) && <div className='d-flex border  justify-content-center  flex-column align-items-center gap-2 ' style={{ width: '50%', height: '70vh', }}>
                 <img style={{ width: '100%', height: '100%' }} src={loginImg} alt="" />
-            </div>
-            <div className='d-flex border justify-content-center flex-column align-items-center gap-2 bg-secondary bg-opacity-25' style={{ width: '50%', height: '70vh' }}>
+            </div>}
+            <div className=' res-signup-form d-flex border justify-content-center flex-column align-items-center gap-2 bg-secondary bg-opacity-25' style={{ width: '50%', height: '70vh' }}>
                 <form action="" className='d-flex justify-content-center align-items-center  flex-column w-100'>
                     <div className='d-flex flex-column gap-1' style={{ width: "80%" }}>
                         <label htmlFor="firstname">First Name</label>

@@ -2,24 +2,27 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import treatment from '../data/treatmentData';
 
-const Footer = () => {
+const Footer = (props) => {
     return (
-        <div className='d-flex justify-content-evenly gap-3 p-2' style={{ width: '100%', height: "40vh", background: '#1098F7' }}>
-            <div className='d-flex flex-column w-25 gap-2 '>
-                <div className='d-flex flex-column gap-4'>
-                    <h4 style={{ color: '#fff' }}>
-                        Contact Us
-                    </h4>
-                    <ul className='footer-ul'>
-                        <li><div><LocalPhoneIcon /></div><div> 9604132323</div></li>
-                        <li><div><LocationOnIcon /></div><div> Manik Dalvi's Clinic, Kalyan Naka,Rk Business Centre, Opp. Bopal Nagar, Maharashtra, 421302</div></li>
-                    </ul>
+        <div className='res-footer d-flex justify-content-evenly gap-3 p-4' style={{ width: '100%', background: '#1098F7' }}>
+            <div className='d-flex flex-column  '>
+                <div className='d-flex flex-column'>
+                    <div className='d-flex flex-column gap-4 '>
+                        <h4 style={{ color: 'black' }}>
+                            Contact Us
+                        </h4>
+                        <ul className='footer-ul '>
+                            <li><div><LocalPhoneIcon /></div><div className='ps-2'> 9604132323</div></li>
+                            <li><div><LocationOnIcon /></div><div className='ps-2' style={{ maxWidth: "300px" }}> Manik Dalvi's Clinic, Kalyan Naka,Rk Business Centre, Opp. Bopal Nagar, Maharashtra, 421302</div></li>
+                        </ul>
+                    </div>
                 </div>
             </div >
             <div className='d-flex flex-column'>
                 <div className='d-flex flex-column gap-4'>
-                    <h4 style={{ color: '#fff' }}>
+                    <h4 style={{ color: 'black' }}>
                         Quick link
                     </h4>
                     <ul className='footer-ul'>
@@ -41,25 +44,17 @@ const Footer = () => {
             </div>
             <div className='d-flex  flex-column'>
                 <div className='d-flex flex-column gap-4'>
-                    <h4 style={{ color: '#fff' }}>
+                    <h4 style={{ color: 'black' }}>
                         Our Treatments
                     </h4>
                     <ul className='footer-ul'>
-                        <li>
-                            Adolescent Health
-                        </li>
-                        <li>
-                            Normal Delivery
-                        </li>
-                        <li>
-                            Health Check-up
-                        </li>
-                        <li>
-                            Laparoscopy
-                        </li>
-                        <li>
-                            Vaccination And Check-up
-                        </li>
+                        {treatment.map((varriant) => {
+                            return <li key={varriant.title}>
+                                <Link to="/treatment-details" onClick={() => { props.setTreat(varriant) }}>
+                                    {varriant.title}
+                                </Link>
+                            </li>
+                        })}
                     </ul>
                 </div>
             </div>

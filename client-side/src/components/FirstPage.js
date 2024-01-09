@@ -29,17 +29,17 @@ export default function FirstPage(props) {
         props.setCurrentPage("secondpage");
     }
     return (
-        <div className="d-flex flex-column justify-content-center align-items-center w-100">
+        <div className=" res-firstpage d-flex flex-column justify-content-center align-items-center " style={{ width: '100%', height: '100%' }}>
             <form
                 name="slotform"
-                className="d-flex flex-column align-items-center justify-content-center p-3 w-100"
+                className="d-flex flex-column align-items-center justify-content-center p-3 w-100 "
                 onSubmit={handleNext}
             >
                 <h3 className="mb-4">Select Slot</h3>
-                <div className="w-100 d-flex justify-content-between align-items-center">
+                <div className="w-100 d-flex justify-content-center align-items-center flex-wrap ">
                     <button
                         className="btn btn-outline-dark"
-                        style={{ width: "10%" }}
+                        style={{ width: "15%" }}
                         type="button"
                         onClick={() => {
                             props.setNextDates(props.nextDates - 5);
@@ -58,7 +58,7 @@ export default function FirstPage(props) {
                             });
                         }}
                     >
-                        {dates.slice(props.nextDates - 5, props.nextDates).map((date) => {
+                        {dates.slice(props.nextDates - 3, props.nextDates).map((date) => {
                             return (
                                 <div key={date} className="m-2 ms-4 me-4">
                                     <input
@@ -87,7 +87,7 @@ export default function FirstPage(props) {
                     </fieldset>
                     <button
                         className="btn btn-outline-dark"
-                        style={{ width: "10%" }}
+                        style={{ width: "15%" }}
                         type="button"
                         onClick={() => {
                             props.setNextDates(props.nextDates + 5);

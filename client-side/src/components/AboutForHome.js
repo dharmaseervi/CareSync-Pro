@@ -4,7 +4,7 @@ import AboutImg from '../assets/login.png'
 
 const AboutForHome = () => {
     return (
-        <div className='d-flex ps-5 pe-5  justify-content-between align-items-center ' style={{ width: '100%' }}>
+        <div className='res-about d-flex ps-5 pe-5  justify-content-between align-items-center ' style={{ width: '100%' }}>
             <div className='d-flex flex-column gap-4 bg-dark bg-opacity-25 justify-content-center p-3 align-items-center ' style={{ width: '40vw', height: '70vh' }}>
                 <div className='d-flex flex-column justify-content-center '>
                     <h1 className='text-center text-dark'>

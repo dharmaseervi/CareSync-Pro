@@ -10,26 +10,26 @@ import BlogCard from '../components/BlogCard';
 const Home = (props) => {
   return (
     <>
-      <div style={{ height: '100vh', display: 'flex', justifyContent: "center", }}>
-        <HomeComp  login={props.login} />
+      <div style={{ height: '100%', display: 'flex', justifyContent: "center", }}>
+        <HomeComp login={props.login} />
       </div>
-      <div style={{ height: '100vh' }}>
+      <div style={{ height: '100%' }}>
         <AboutForHome />
       </div>
-      <div style={{ height: '100vh' }} >
+      <div style={{ height: '100%' }} >
         <TreatCard show={false} setTreat={props.setTreat} />
       </div>
-      <div style={{height:'100vh'}}>
+      <div style={{ height: '100%' }}>
         <BlogCard show={true} setBlog={props.setBlog} />
       </div>
-      <div style={{ height: '80vh' }} className='bg-dark bg-opacity-25 ' >
+      <div style={{ height: '100%' }} className='bg-dark bg-opacity-25 ' >
         <Clinic />
       </div>
-      <div>
+      <div style={{ height: '100%' }}>
         <Faq />
       </div>
-      <div>
-        <Footer />
+      <div style={{ height: '100%' }}>
+        <Footer setTreat={props.setTreat}/>
       </div>
     </>
   )

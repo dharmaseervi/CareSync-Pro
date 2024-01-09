@@ -6,25 +6,31 @@ import { Link } from 'react-router-dom';
 const HomeComp = (props) => {
     return (
 
-        <div className='container d-flex justify-content-evenly align-items-center  m-5'>
-            <div className=' profile p-3 d-flex justify-content-center align-items-center flex-column w-25 h-50 '>
-                <img src={profileImg} style={{ width: '70%', height: '70%', border: '5px solid green' }} alt="" />
-                <h1>
-                    Dr. Manik Dalvi
-                </h1>
-                <p>
-                    Obstetrics & Gynecology
-                    MBBS,MS
-                </p>
-                <button className='btn btn-primary'>
-                    {props.login ? <Link to={'/booking'} style={{ textDecoration: 'none', color: 'white' }}>book appointment</Link>
-                        : <Link to={'/login'} style={{ textDecoration: 'none', color: 'white' }}>book appointment</Link>
-                    }
-                </button>
+        <div className='res-home container d-flex justify-content-evenly align-items-center  m-5'>
+            <div className='profile p-3 d-flex justify-content-center align-items-center flex-column '>
+                <img src={profileImg} style={{ width: '30%', height: '30%', borderRadius: '50%', border: '5px solid green', }} className='res-img' alt="" />
+                <div className='d-flex m-0 flex-column justify-content-center align-items-center '>
+                    <h1>
+                        Dr. Manik Dalvi
+                    </h1>
+                    <p>
+                        Obstetrics & Gynecology
+                    </p>
+                    <p>
+                        MBBS,MS
+                    </p>
+                </div>
+                <div>
+                    <button className='btn btn-primary'>
+                        {props.login ? <Link to={'/booking'} style={{ textDecoration: 'none', color: 'white' }}>book appointment</Link>
+                            : <Link to={'/login'} style={{ textDecoration: 'none', color: 'white' }}>book appointment</Link>
+                        }
+                    </button>
+                </div>
             </div>
 
-            <div className='  p-3 d-flex justify-content-center align-items-center flex-column gap-3' style={{ maxWidth: '40vw', maxHeight: '60vh' }}>
-                <div>
+            <div className='res-visitingcard  p-3 d-flex justify-content-center align-items-center flex-column gap-3 bg-opacity-50 ' style={{ width: '40vw', height: '60vh' }}>
+                <div className='d-flex justify-content-center'>
                     <h5>
                         Book a Clinic Appointment
                     </h5>
@@ -41,8 +47,8 @@ const HomeComp = (props) => {
                     <p className='borderBtm'>
                     </p>
                     <div className='d-flex justify-content-center align-items-center flex-column'>
-                        <h6 className='text-danger'>Book Clinic Visit
-                        </h6>
+                        <p className='text-danger'>Book Clinic Visit
+                        </p>
                         <p className='text-danger'>No Booking Fee</p>
                     </div>
                 </div>
