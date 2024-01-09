@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": " npm install && node server-side/app.js",
-    "build": "npm install && npm install --prefix client-side && npm run build --prefix client-side"
+    "install": "cd server && npm i && cd ../client && npm i --production=false",
+    "build": "cd client-side && npm run build",
+    "render-build": "npm install && npm run build"
+    
   },
   "author": "",
   "license": "ISC"
