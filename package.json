@@ -5,12 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "install-server-side": "cd server-side && npm install",
-    "server": "cd server-side && node app.js",
-    "client-side": "cd client-side && npm install",
-    "build-client-side":"cd client-side && npm run build",
-    "start-client-side": "cd client-side && npm run start"
+    "start": "node server-side/app.js",
+    "build": "npm install && npm install --prefix client-side && npm run build --prefix client-side"
   },
   "author": "",
   "license": "ISC"
