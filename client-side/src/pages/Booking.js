@@ -7,14 +7,14 @@ import SuccessPage from "../components/Successful";
 export default function Form(props) {
     const fetchSession = async () => {
         try {
-            let apiBaseUrl;
+            let  apiBaseUrl = 'https://caresync-pro.onrender.com';  
 
-            // Check if the app is running in development (localhost) or production (Render)
-            if (process.env.NODE_ENV === 'development') {
-                apiBaseUrl = 'http://localhost:5050'; // Your local server URL
-            } else {
-                apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
-            }
+            // // Check if the app is running in development (localhost) or production (Render)
+            // if (process.env.NODE_ENV === 'development') {
+            //     apiBaseUrl = 'http://localhost:5050'; // Your local server URL
+            // } else {
+            //     apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
+            // }
             const response = await fetch(`${apiBaseUrl}/auth/validatesession`, {
                 credentials: "include",
                 mode: 'cors',

@@ -47,16 +47,16 @@ const Login = (props) => {
 
         try {
             setLoading(true)
-            let apiBaseUrl;
+            let apiBaseUrl = 'https://caresync-pro.onrender.com';
 
-            // Check if the app is running in development (localhost) or production (Render)
-            if (process.env.NODE_ENV === 'development') {
-                apiBaseUrl = 'http://localhost:5050'; 
-                console.log('local');// Your local server URL
-            } else {
-                apiBaseUrl = 'https://caresync-pro.onrender.com'
-                console.log('render');;  // Your Render domain
-            }
+            // // Check if the app is running in development (localhost) or production (Render)
+            // if (process.env.NODE_ENV === 'development') {
+            //     apiBaseUrl = 'http://localhost:5050'; 
+            //     console.log('local');// Your local server URL
+            // } else {
+            //     apiBaseUrl = 'https://caresync-pro.onrender.com'
+            //     console.log('render');;  // Your Render domain
+            // }
             const response = await fetch(`${apiBaseUrl}/auth/login`, {
                 method: 'POST',
                 headers: {

@@ -6,14 +6,14 @@ const Appointment = (props) => {
     const userid = props.userID.userID;
     console.log('userid for backend', userid);
     const [data, setData] = useState([]);
-    let apiBaseUrl;
+    let apiBaseUrl = 'https://caresync-pro.onrender.com'; 
 
-    // Check if the app is running in development (localhost) or production (Render)
-    if (process.env.NODE_ENV === 'development') {
-        apiBaseUrl = 'http://localhost:5050'; // Your local server URL
-    } else {
-        apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
-    }
+    // // Check if the app is running in development (localhost) or production (Render)
+    // if (process.env.NODE_ENV === 'development') {
+    //     apiBaseUrl = 'http://localhost:5050'; // Your local server URL
+    // } else {
+    //     apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
+    // }
     const url = `${apiBaseUrl}/auth/appointmentForm?data=${encodeURIComponent(userid)}`;
 
     useEffect(() => {
