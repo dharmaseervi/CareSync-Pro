@@ -50,10 +50,12 @@ const Login = (props) => {
             let apiBaseUrl;
 
             // Check if the app is running in development (localhost) or production (Render)
-            if (!process.env.NODE_ENV === 'development') {
-                apiBaseUrl = 'http://localhost:5050'; // Your local server URL
+            if (process.env.NODE_ENV === 'development') {
+                apiBaseUrl = 'http://localhost:5050'; 
+                console.log('local');// Your local server URL
             } else {
-                apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
+                apiBaseUrl = 'https://caresync-pro.onrender.com'
+                console.log('render');;  // Your Render domain
             }
             const response = await fetch(`${apiBaseUrl}/auth/login`, {
                 method: 'POST',

@@ -35,7 +35,7 @@ export default function Signup(props) {
             let apiBaseUrl;
 
             // Check if the app is running in development (localhost) or production (Render)
-            if (!process.env.NODE_ENV === 'development') {
+            if (process.env.NODE_ENV === 'development') {
                 apiBaseUrl = 'http://localhost:5050'; // Your local server URL
             } else {
                 apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
