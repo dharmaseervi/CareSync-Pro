@@ -78,9 +78,6 @@
         
 
     }
-
-
-
     .menu-toggle {
         display: flex;
         position: absolute;
@@ -104,11 +101,14 @@
         position: absolute;
         z-index: 999;
         top: 3%;
-        left: 72%;
+        left: 80%;
         display: flex;
         width: 0% !important;
         height: 0% !important;
-      
+        justify-content: center;
+        align-items: center;
+        transform: translateX(-50%); 
     }
+  
 
 }

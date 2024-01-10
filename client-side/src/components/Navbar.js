@@ -52,6 +52,7 @@ const Navbar = (props) => {
                         </ul>
                     </div>}
 
+
                 {props.login ?
                     <div className='resnavs-profile'>
                         <UserProfile setLogin={props.setLogin} firstLetter={props.firstLetter} />
@@ -60,6 +61,7 @@ const Navbar = (props) => {
                     <Hamburger toggled={isOpen} size={35} toggle={setOpen} />
                 </div>
             </div>
+
 
 
         </>
