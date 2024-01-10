@@ -6,14 +6,7 @@ export default function ThirdPage(props) {
 
     console.log(props.appointmentData);
     try {
-      let apiBaseUrl = 'https://caresync-pro.onrender.com';
-
-      // // Check if the app is running in development (localhost) or production (Render)
-      // if (process.env.NODE_ENV === 'development') {
-      //   apiBaseUrl = 'http://localhost:5050'; // Your local server URL
-      // } else {
-      //   apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
-      // }
+      let apiBaseUrl = `${import.meta.env.serverUrl}`;
       const response = await axios.post(`${apiBaseUrl}/auth/appointmentForm`, props.appointmentData);
 
       if (response.status === 200) {

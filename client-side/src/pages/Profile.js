@@ -11,14 +11,7 @@ const Profile = (props) => {
     const [editedData, setEditedData] = useState({});
     console.log(editedData);
  
-    let  apiBaseUrl = 'https://caresync-pro.onrender.com'
-
-    // Check if the app is running in development (localhost) or production (Render)
-    // if (process.env.NODE_ENV === 'development') {
-    //     apiBaseUrl = 'http://localhost:5050'; // Your local server URL
-    // } else {
-    //     apiBaseUrl = 'https://caresync-pro.onrender.com';  // Your Render domain
-    // }
+    let apiBaseUrl = `${import.meta.env.serverUrl}`;
     const url = `${apiBaseUrl}/auth/userdata?data=${encodeURIComponent(userid)}`;
 
 
