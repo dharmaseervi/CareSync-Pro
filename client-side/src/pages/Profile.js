@@ -11,7 +11,7 @@ const Profile = (props) => {
     const [editedData, setEditedData] = useState({});
     console.log(editedData);
  
-    let apiBaseUrl = `${import.meta.env.serverUrl}`;
+    let apiBaseUrl = 'https://caresync-pro.onrender.com'
     const url = `${apiBaseUrl}/auth/userdata?data=${encodeURIComponent(userid)}`;
 
 

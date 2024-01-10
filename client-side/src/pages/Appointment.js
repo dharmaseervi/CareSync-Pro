@@ -6,7 +6,7 @@ const Appointment = (props) => {
     const userid = props.userID.userID;
     console.log('userid for backend', userid);
     const [data, setData] = useState([]);
-    let apiBaseUrl = `${import.meta.env.serverUrl}`;
+    let apiBaseUrl = 'https://caresync-pro.onrender.com'
     const url = `${apiBaseUrl}/auth/appointmentForm?data=${encodeURIComponent(userid)}`;
 
     useEffect(() => {

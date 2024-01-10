@@ -25,7 +25,7 @@ const UserProfile = (props) => {
 
     const handleLogout = async () => {
         try {
-            let apiBaseUrl = `${import.meta.env.serverUrl}`;
+            let apiBaseUrl = 'https://caresync-pro.onrender.com'
             const response = await fetch(`${apiBaseUrl}/auth/logout`, {
                 method: 'POST',
                 credentials: 'include', // Send cookies with the request

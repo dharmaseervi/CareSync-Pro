@@ -6,7 +6,7 @@ export default function ThirdPage(props) {
 
     console.log(props.appointmentData);
     try {
-      let apiBaseUrl = `${import.meta.env.serverUrl}`;
+      let apiBaseUrl = 'https://caresync-pro.onrender.com'
       const response = await axios.post(`${apiBaseUrl}/auth/appointmentForm`, props.appointmentData);
 
       if (response.status === 200) {

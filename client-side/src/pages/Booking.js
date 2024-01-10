@@ -7,7 +7,7 @@ import SuccessPage from "../components/Successful";
 export default function Form(props) {
     const fetchSession = async () => {
         try {
-            let apiBaseUrl = `${import.meta.env.serverUrl}`;
+            let apiBaseUrl = 'https://caresync-pro.onrender.com'
             const response = await fetch(`${apiBaseUrl}/auth/validatesession`, {
                 credentials: "include",
                 mode: 'cors',

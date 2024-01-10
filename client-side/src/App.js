@@ -26,7 +26,8 @@ function App() {
   useEffect(() => {
     const fetchSession = async () => {
       console.log("hello")
-     let  apiBaseUrl = 'https://caresync-pro.onrender.com'
+      let apiBaseUrl = `${import.meta.env.SERVERURL}`;
+      console.log(apiBaseUrl);
       const response = await fetch(`${apiBaseUrl}/auth/validatesession`, {
         credentials: "include",
         mode: 'cors',

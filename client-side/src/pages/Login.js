@@ -47,7 +47,8 @@ const Login = (props) => {
 
         try {
             setLoading(true)
-            let apiBaseUrl = `${import.meta.env.serverUrl}`;
+            let apiBaseUrl = 'https://caresync-pro.onrender.com'
+            console.log(apiBaseUrl);
             const response = await fetch(`${apiBaseUrl}/auth/login`, {
                 method: 'POST',
                 headers: {
