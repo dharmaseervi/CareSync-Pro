@@ -63,7 +63,7 @@
         top: 0%;
         display: flex;
         flex-direction: column;
-        background-color: white;
+        background-color: #F5EFED;
         opacity: 25px;
         width: 100%;
         left: 0%;
@@ -73,6 +73,9 @@
         align-items: self-start;
         padding-left: 10px;
         padding: 10px;
+        font-weight: 700;
+        font-size: 1.6rem;
+        
 
     }
 
@@ -101,7 +104,7 @@
         position: absolute;
         z-index: 999;
         top: 3%;
-        left: 75%;
+        left: 72%;
         display: flex;
         width: 0% !important;
         height: 0% !important;

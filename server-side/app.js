@@ -35,7 +35,7 @@ app.use(cookieParser('secret'));
 
 // Routes
 app.use(cors({
-    origin: 'https://caresync-pro.onrender.com',
+    origin: ['https://caresync-pro.onrender.com', 'http://localhost:3000'],
     credentials: true,
 }));
 

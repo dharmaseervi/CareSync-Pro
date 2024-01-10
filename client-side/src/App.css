@@ -21,7 +21,7 @@ body {
   width: 100%;
   min-height: 70%;
   mix-blend-mode: hard-light;
-  
+
 }
 
 .booking p {
@@ -204,16 +204,25 @@ body {
   .res-about {
     display: flex;
     flex-direction: column;
+    width: 100% !important;
+  
 
   }
 
   .res-about div {
     width: 100% !important;
     height: 100% !important;
+    
   }
 
   .res-about img {
-    height: 60vh !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  .res-abt-home {
+    width: 100% !important;
+    
   }
 
   /* treat */
@@ -278,11 +287,29 @@ body {
 
   /* booking appointment first page */
   .res-bookings {
-
     height: 100% !important;
+    width: 98% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .res-firstpage {
+    display: flex;
+
+    flex-wrap: wrap;
+    width: 100% !important;
 
   }
+
+  .res-date {
+    display: flex;
+    width: 100% !important;
+    margin: 10px;
+    height: 100% !important;
+    flex-wrap: wrap;
+  }
+
 
   .res-appointment {
     display: flex;
@@ -309,14 +336,17 @@ body {
   .res-login-form {
     width: 100% !important;
   }
+
   .res-signup-form {
     width: 100% !important;
-   
+
   }
 
   .res-signup {
-     width: 90% !important;
+    width: 90% !important;
 
   }
+
+
 
 }

@@ -9,9 +9,9 @@ const Profile = (props) => {
     const [data, setData] = useState([]);
     const [editMode, setEditMode] = useState(false);
     const [editedData, setEditedData] = useState({});
-    console.log(editedData);
- 
-    let apiBaseUrl = 'https://caresync-pro.onrender.com'
+
+    let apiBaseUrl = 'https://caresync-pro.onrender.com';
+    // let apiBaseUrl = 'http://localhost:5050';
     const url = `${apiBaseUrl}/auth/userdata?data=${encodeURIComponent(userid)}`;
 
 

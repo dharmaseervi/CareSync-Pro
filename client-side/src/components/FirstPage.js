@@ -29,17 +29,17 @@ export default function FirstPage(props) {
         props.setCurrentPage("secondpage");
     }
     return (
-        <div className=" res-firstpage d-flex flex-column justify-content-center align-items-center " style={{ width: '100%', height: '100%' }}>
+        <div className=" res-firstpage d-flex flex-column justify-content-center align-items-center  flex-wrap " style={{ width: '100%', height: '100%' }}>
             <form
                 name="slotform"
                 className="d-flex flex-column align-items-center justify-content-center p-3 w-100 "
                 onSubmit={handleNext}
             >
                 <h3 className="mb-4">Select Slot</h3>
-                <div className="w-100 d-flex justify-content-center align-items-center flex-wrap ">
+                <div className="res-date d-flex justify-content-center align-items-center flex-wrap  ">
                     <button
                         className="btn btn-outline-dark"
-                        style={{ width: "15%" }}
+                        style={{ minWidth: "15%" }}
                         type="button"
                         onClick={() => {
                             props.setNextDates(props.nextDates - 5);
@@ -50,7 +50,7 @@ export default function FirstPage(props) {
                     </button>
                     <fieldset
                         id="date"
-                        className="d-flex justify-content-evenly"
+                        className="d-flex justify-content-center flex-wrap "
                         onChange={(event) => {
                             props.setAppointmentData({
                                 ...props.appointmentData,
@@ -58,11 +58,11 @@ export default function FirstPage(props) {
                             });
                         }}
                     >
-                        {dates.slice(props.nextDates - 3, props.nextDates).map((date) => {
+                        {dates.slice(props.nextDates - 5, props.nextDates).map((date) => {
                             return (
                                 <div key={date} className="m-2 ms-4 me-4">
                                     <input
-                                        className="btn-check"
+                                        className=" btn-check"
                                         type="radio"
                                         value={date}
                                         id={date}
@@ -75,7 +75,7 @@ export default function FirstPage(props) {
                                         }
                                     />
                                     <label
-                                        className="btn btn-outline-dark"
+                                        className=" btn btn-outline-dark"
                                         htmlFor={date}
                                         style={{ fontWeight: 500 }}
                                     >
@@ -87,7 +87,7 @@ export default function FirstPage(props) {
                     </fieldset>
                     <button
                         className="btn btn-outline-dark"
-                        style={{ width: "15%" }}
+                        style={{ minWidth: "15%" }}
                         type="button"
                         onClick={() => {
                             props.setNextDates(props.nextDates + 5);

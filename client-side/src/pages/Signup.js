@@ -32,9 +32,9 @@ export default function Signup(props) {
 
     const handleSignUp = async () => {
         try {
-            let apiBaseUrl = 'https://caresync-pro.onrender.com'
-
-
+            
+            let apiBaseUrl = 'https://caresync-pro.onrender.com';
+            // let apiBaseUrl = 'http://localhost:5050';
             const response = await fetch(`${apiBaseUrl}/auth/register`, {
                 method: 'POST',
                 headers: {

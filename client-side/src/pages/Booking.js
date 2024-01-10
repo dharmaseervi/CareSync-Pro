@@ -7,7 +7,8 @@ import SuccessPage from "../components/Successful";
 export default function Form(props) {
     const fetchSession = async () => {
         try {
-            let apiBaseUrl = 'https://caresync-pro.onrender.com'
+            let apiBaseUrl = 'https://caresync-pro.onrender.com';
+            // let apiBaseUrl = 'http://localhost:5050';
             const response = await fetch(`${apiBaseUrl}/auth/validatesession`, {
                 credentials: "include",
                 mode: 'cors',
@@ -25,7 +26,6 @@ export default function Form(props) {
             console.error("Error during session validation:", error.message);
         }
     };
-    console.log('form booking ', props.userID.userID);
 
     fetchSession();
     useEffect(() => {
@@ -41,15 +41,14 @@ export default function Form(props) {
         userId: props.userID.userID
     });
 
-    console.log(appointmentData)
     const [currentPage, setCurrentPage] = useState("firstpage");
     const [loading, setLoading] = useState(false);
 
 
     return (
         <div
-            className="res-bookings d-flex flex-column  mx-auto  mt-5 justify-content-center align-items-center bg-light bg-opacity-25 p-3  border border-dark  m-3"
-            style={{ height: "80vh", width: '98%', overflow: "hidden", borderRadius: "10px" }}
+            className="res-bookings d-flex flex-column  mx-auto  mt-5 justify-content-center align-items-center bg-light bg-opacity-25 p-3  border border-dark  m-3 "
+            style={{ height: "100%", width: '98%', borderRadius: "10px" }}
         >
             <h2 className="mt-2">Appointment Booking</h2>
             {currentPage === "firstpage" ? (

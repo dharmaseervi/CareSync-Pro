@@ -5,6 +5,9 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import treatment from '../data/treatmentData';
 
 const Footer = (props) => {
+    const phoneNumber = '9604132323';
+    const clinicAddress = "Manik Dalvi's Clinic, Kalyan Naka, RK Business Centre, Opp. Bopal Nagar, Maharashtra, 421302";
+
     return (
         <div className='res-footer d-flex justify-content-evenly gap-3 p-4' style={{ width: '100%', background: '#1098F7' }}>
             <div className='d-flex flex-column  '>
@@ -14,8 +17,11 @@ const Footer = (props) => {
                             Contact Us
                         </h4>
                         <ul className='footer-ul '>
-                            <li><div><LocalPhoneIcon /></div><div className='ps-2'> 9604132323</div></li>
-                            <li><div><LocationOnIcon /></div><div className='ps-2' style={{ maxWidth: "300px" }}> Manik Dalvi's Clinic, Kalyan Naka,Rk Business Centre, Opp. Bopal Nagar, Maharashtra, 421302</div></li>
+                            <li><div><LocalPhoneIcon /></div><div className='ps-2'>  <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
+                            </div></li>
+                            <li><div><LocationOnIcon /></div><div className='ps-2' style={{ maxWidth: "300px" }}>    <a href={`https://www.google.com/maps/place/${encodeURIComponent(clinicAddress)}`} target="_blank" rel="noopener noreferrer">
+                                {clinicAddress}
+                            </a></div></li>
                         </ul>
                     </div>
                 </div>
@@ -58,7 +64,7 @@ const Footer = (props) => {
                     </ul>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

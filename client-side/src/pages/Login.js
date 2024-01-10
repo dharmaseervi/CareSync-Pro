@@ -47,7 +47,8 @@ const Login = (props) => {
 
         try {
             setLoading(true)
-            let apiBaseUrl = 'https://caresync-pro.onrender.com'
+            let apiBaseUrl = 'https://caresync-pro.onrender.com';
+            // let apiBaseUrl = 'http://localhost:5050';
             console.log(apiBaseUrl);
             const response = await fetch(`${apiBaseUrl}/auth/login`, {
                 method: 'POST',
@@ -62,8 +63,6 @@ const Login = (props) => {
             if (response.status === 200) {
                 const data = await response.json();
                 localStorage.setItem('authToken', data.token);
-                console.log(data.userSession)
-                console.log(data);
                 props.setUserLoginInfo(data.userSession);
                 checkLoggedIn();
             } else if (response.status === 401) {

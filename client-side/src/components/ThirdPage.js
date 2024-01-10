@@ -3,10 +3,9 @@ import React from "react";
 export default function ThirdPage(props) {
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    console.log(props.appointmentData);
     try {
-      let apiBaseUrl = 'https://caresync-pro.onrender.com'
+        let apiBaseUrl = 'https://caresync-pro.onrender.com';
+        // let apiBaseUrl = 'http://localhost:5050';
       const response = await axios.post(`${apiBaseUrl}/auth/appointmentForm`, props.appointmentData);
 
       if (response.status === 200) {
@@ -18,12 +17,10 @@ export default function ThirdPage(props) {
         }, 2000);
       } else {
         console.error('bookign failed:', response.data.message);
-        // Handle the login failure, show a message to the user, etc.
       }
 
     } catch (error) {
       console.error('Error during login:', error.message);
-      // Handle unexpected errors, show a message to the user, etc.
     }
   };
   return (

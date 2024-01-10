@@ -4,9 +4,10 @@ import React, { useEffect, useState } from 'react'
 const Appointment = (props) => {
 
     const userid = props.userID.userID;
-    console.log('userid for backend', userid);
     const [data, setData] = useState([]);
-    let apiBaseUrl = 'https://caresync-pro.onrender.com'
+    let apiBaseUrl = 'https://caresync-pro.onrender.com';
+    // let apiBaseUrl = 'http://localhost:5050';
+
     const url = `${apiBaseUrl}/auth/appointmentForm?data=${encodeURIComponent(userid)}`;
 
     useEffect(() => {
@@ -22,7 +23,6 @@ const Appointment = (props) => {
         fetchData();
     }, [url]);
 
-    console.log(data);
     return (
         <div className='d-flex justify-content-center align-items-center mx-auto flex-column mt-5'>
             <h1>appointment details</h1>
